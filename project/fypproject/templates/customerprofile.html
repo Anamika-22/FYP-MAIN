@@ -1,0 +1,290 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Profilet{% endblock %}
+{% block content %}
+    <section style="background-color: #eee;">
+        <div class="container py-5">
+            <div class="row">
+                <div class="col"></div>
+            </div>
+            <br />
+            <br />
+            <div class="row">
+                <div class="col-lg-4">
+                    <div class="card mb-4">
+                        <div class="card-body text-center">
+                            <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava3.webp"
+                                 alt="avatar"
+                                 class="rounded-circle img-fluid"
+                                 style="width: 150px;">
+                            <h5 class="my-3">{{ customer.full_name }}</h5>
+                            <div class="d-flex justify-content-center mb-2"></div>
+                        </div>
+                    </div>
+                    <div class="card mb-4 mb-lg-0">
+                        <div class="card-body p-0"></div>
+                    </div>
+                </div>
+                <div class="col-lg-8">
+                    <div class="card mb-4">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-sm-3">
+                                    <p class="mb-0">
+                                        Full Name
+                                    </p>
+                                </div>
+                                <div class="col-sm-9">
+                                    <p class="text-muted mb-0">
+                                        {{ customer.full_name }}
+                                    </p>
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="row">
+                                <div class="col-sm-3">
+                                    <p class="mb-0">
+                                        Email
+                                    </p>
+                                </div>
+                                <div class="col-sm-9">
+                                    <p class="text-muted mb-0">
+                                        {{ customer.user.email }}
+                                    </p>
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="row">
+                                <div class="col-sm-3">
+                                    <p class="mb-0">
+                                        Username
+                                    </p>
+                                </div>
+                                <div class="col-sm-9">
+                                    <p class="text-muted mb-0">
+                                        {{ customer.user.username }}
+                                    </p>
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="row">
+                                <div class="col-sm-3">
+                                    <p class="mb-0">
+                                        Address
+                                    </p>
+                                </div>
+                                <div class="col-sm-9">
+                                    <p class="text-muted mb-0">
+                                        {{ customer.address }}
+                                    </p>
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="row">
+                                <div class="col-sm-3">
+                                    <p class="mb-0">
+                                        Joined on
+                                    </p>
+                                </div>
+                                <div class="col-sm-9">
+                                    <p class="text-muted mb-0">
+                                        {{ customer.joined_on }}
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="m-l-25 m-r--38 m-lr-0-xl">
+                            <div class="wrap-table-shopping-cart">
+                                <h5 class="mtext-109 cl2 p-b-30">Previous Orders</h5>
+                                <table class="table-shopping-cart" style="background-color: White;">
+                                    <tr class="table_head">
+                                        <th class="column-1">SN</th>
+                                        <th class="column-2">Order ID</th>
+                                        <th class="column-3">Amount</th>
+                                        <th class="column-4">Ordered on</th>
+                                        <th class="column-5">Status</th>
+                                    </tr>
+                                    {% for ord in orders %}
+                                        <tr class="table_row">
+                                            <td class="column-1">{{ forloop.counter }}</td>
+                                            <td class="column-2">
+                                                <a href ="{% url 'ecommerce:customerorderdetail' ord.pk %}">#ORDERID_{{ ord.id }}</a>
+                                            </td>
+                                            <td class="column-3">{{ ord.total }}</td>
+                                            <td class="column-4">{{ ord.created_at | timesince }} ago</td>
+                                            <td class="column-5">{{ ord.order_status }}</td>
+                                        </tr>
+                                    {% endfor %}
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Footer -->
+        <footer class="bg3 p-t-75 p-b-32">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-6 col-lg-3 p-b-50">
+                        <h4 class="stext-301 cl0 p-b-30">Categories</h4>
+                        <ul>
+                            <li class="p-b-10">
+                                <a href="{% url 'ecommerce:allproducts' %}"
+                                   class="stext-107 cl7 hov-cl1 trans-04">Women</a>
+                            </li>
+                            <li class="p-b-10">
+                                <a href="{% url 'ecommerce:allproducts' %}"
+                                   class="stext-107 cl7 hov-cl1 trans-04">Men</a>
+                            </li>
+                            <li class="p-b-10">
+                                <a href="{% url 'ecommerce:allproducts' %}"
+                                   class="stext-107 cl7 hov-cl1 trans-04">Shoes</a>
+                            </li>
+                            <li class="p-b-10">
+                                <a href="{% url 'ecommerce:allproducts' %}"
+                                   class="stext-107 cl7 hov-cl1 trans-04">Watches</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col-sm-6 col-lg-3 p-b-50">
+                        <h4 class="stext-301 cl0 p-b-30">Help</h4>
+                        <li class="p-b-10">
+                            <a href="{% url 'ecommerce:customerprofile' %}"
+                               class="stext-107 cl7 hov-cl1 trans-04">Track Order</a>
+                        </li>
+                        <li class="p-b-10"></li>
+                        <li class="p-b-10">
+                            <a href="{% url 'ecommerce:customerprofile' %}"
+                               class="stext-107 cl7 hov-cl1 trans-04">Shipping</a>
+                        </li>
+                        <li class="p-b-10"></li>
+                    </div>
+                    <div class="col-sm-6 col-lg-3 p-b-50">
+                        <h4 class="stext-301 cl0 p-b-30">GET IN TOUCH</h4>
+                        <p class="stext-107 cl7 size-201">
+                            Any questions? Any questions? email us at email@example.com
+                        </p>
+                        <div class="p-t-27">
+                            <a href="#" class="fs-18 cl7 hov-cl1 trans-04 m-r-16">
+                                <i class="fa fa-facebook"></i>
+                            </a>
+                            <a href="#" class="fs-18 cl7 hov-cl1 trans-04 m-r-16">
+                                <i class="fa fa-instagram"></i>
+                            </a>
+                            <a href="#" class="fs-18 cl7 hov-cl1 trans-04 m-r-16">
+                                <i class="fa fa-pinterest-p"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-lg-3 p-b-50">
+                        <h4 class="stext-301 cl0 p-b-30">
+                            Newsletter
+                        </h4>
+                        <form>
+                            <div class="wrap-input1 w-full p-b-4">
+                                <input class="input1 bg-none plh1 stext-107 cl7"
+                                       type="text"
+                                       name="email"
+                                       placeholder="email@example.com">
+                                <div class="focus-input1 trans-04">
+                                </div>
+                            </div>
+                            <div class="p-t-18">
+                                <button class="flex-c-m stext-101 cl0 size-103 bg1 bor1 hov-btn2 p-lr-15 trans-04">
+                                    Subscribe
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <div class="p-t-40">
+                    {% comment %} <div class="flex-c-m flex-w p-b-18">
+                        <a href="#" class="m-all-1">
+                            <img src="{% static 'images/icons/icon-pay-01.png' %}" alt="ICON-PAY">
+                        </a>
+                        <a href="#" class="m-all-1">
+                            <img src="{% static 'images/icons/icon-pay-02.png' %}" alt="ICON-PAY">
+                        </a>
+                        <a href="#" class="m-all-1">
+                            <img src="{% static 'images/icons/icon-pay-03.png' %}" alt="ICON-PAY">
+                        </a>
+                        <a href="#" class="m-all-1">
+                            <img src="{% static 'images/icons/icon-pay-04.png' %}" alt="ICON-PAY">
+                        </a>
+                        <a href="#" class="m-all-1">
+                            <img src="{% static 'images/icons/icon-pay-05.png' %}" alt="ICON-PAY">
+                        </a>
+                    </div> {% endcomment %}
+                </div>
+            </div>
+        </footer>
+        <!--===============================================================================================-->
+        <script src="{% static 'vendor/jquery/jquery-3.2.1.min.js' %}"></script>
+        <!--===============================================================================================-->
+        <script src="{% static 'vendor/animsition/js/animsition.min.js' %}"></script>
+        <!--===============================================================================================-->
+        <script src="{% static 'vendor/bootstrap/js/popper.js' %}"></script>
+        <script src="{% static 'vendor/bootstrap/js/bootstrap.min.js'%}"></script>
+        <!--===============================================================================================-->
+        <script src="{% static 'vendor/select2/select2.min.js' %}"></script>
+        <script>
+			$(".js-select2").each(function(){
+				$(this).select2({
+					minimumResultsForSearch: 20,
+					dropdownParent: $(this).next('.dropDownSelect2')
+				});
+			})
+		
+        </script>
+        <!--===============================================================================================-->
+        <script src="{% static 'vendor/daterangepicker/moment.min.js' %}"></script>
+        <script src="{% static 'vendor/daterangepicker/daterangepicker.js' %}"></script>
+        <!--===============================================================================================-->
+        <script src="{% static 'vendor/slick/slick.min.js' %}"></script>
+        <script src="{% static 'js/slick-custom.js' %}"></script>
+        <!--===============================================================================================-->
+        <script src="{% static 'vendor/parallax100/parallax100.js' %}"></script>
+        <script>$('.parallax100').parallax100();</script>
+        <!--===============================================================================================-->
+        <script src="{% static 'vendor/MagnificPopup/jquery.magnific-popup.min.js'%}"></script>
+        <script>
+			$('.gallery-lb').each(function() { // the containers for all your galleries
+				$(this).magnificPopup({
+					delegate: 'a', // the selector for gallery item
+					type: 'image',
+					gallery: {
+						enabled:true
+					},
+					mainClass: 'mfp-fade'
+				});
+			});
+		
+        </script>
+        <!--===============================================================================================-->
+        <script src="{% static 'vendor/isotope/isotope.pkgd.min.js' %}"></script>
+        <!--===============================================================================================-->
+        <script src="{% static 'vendor/sweetalert/sweetalert.min.js' %}"></script>
+        <!--===============================================================================================-->
+        <script src="{% static 'vendor/perfect-scrollbar/perfect-scrollbar.min.js'%}"></script>
+        <script>
+			$('.js-pscroll').each(function(){
+				$(this).css('position','relative');
+				$(this).css('overflow','hidden');
+				var ps = new PerfectScrollbar(this, {
+					wheelSpeed: 1,
+					scrollingThreshold: 1000,
+					wheelPropagation: false,
+				});
+	
+				$(window).on('resize', function(){
+					ps.update();
+				})
+			});
+		
+        </script>
+        <!--===============================================================================================-->
+        <script src="{% static 'js/main.js'%}"></script>
+    {% endblock %}

@@ -1,0 +1,447 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+    <!-- Slider -->
+    
+    <section class="section-slide">
+        <div class="wrap-slick1">
+            <div class="slick1">
+                <div class="item-slick1"
+                     style="background-image: url({% static 'images/slide-01.jpg' %});">
+                    <div class="container h-full">
+                        <div class="flex-col-l-m h-full p-t-100 p-b-30 respon5">
+                            <div class="layer-slick1 animated visible-false"
+                                 data-appear="fadeInDown"
+                                 data-delay="0">
+                                <span class="ltext-101 cl2 respon2">Women Collection</span>
+                            </div>
+                            <div class="layer-slick1 animated visible-false"
+                                 data-appear="fadeInUp"
+                                 data-delay="800">
+                                <h2 class="ltext-201 cl2 p-t-19 p-b-43 respon1">BUY NOW!</h2>
+                            </div>
+                            <div class="layer-slick1 animated visible-false"
+                                 data-appear="zoomIn"
+                                 data-delay="1600">
+                                <a href="{% url 'ecommerce:allproducts' %}"
+                                   class="flex-c-m stext-101 cl0 size-101 bg1 bor1 hov-btn1 p-lr-15 trans-04">
+                                    Shop Now
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="item-slick1"
+                     style="background-image: url({% static 'images/slide-02.jpg' %});">
+                    <div class="container h-full">
+                        <div class="flex-col-l-m h-full p-t-100 p-b-30 respon5">
+                            <div class="layer-slick1 animated visible-false"
+                                 data-appear="rollIn"
+                                 data-delay="0">
+                                <span class="ltext-101 cl2 respon2">Men New-Season</span>
+                            </div>
+                            <div class="layer-slick1 animated visible-false"
+                                 data-appear="lightSpeedIn"
+                                 data-delay="800">
+                                <h2 class="ltext-201 cl2 p-t-19 p-b-43 respon1">Jackets & Coats</h2>
+                            </div>
+                            <div class="layer-slick1 animated visible-false"
+                                 data-appear="slideInUp"
+                                 data-delay="1600">
+                                <a href="{% url 'ecommerce:allproducts' %}"
+                                   class="flex-c-m stext-101 cl0 size-101 bg1 bor1 hov-btn1 p-lr-15 trans-04">
+                                    Shop Now
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="item-slick1"
+                     style="background-image: url({% static 'images/slide-03.jpg' %});">
+                    <div class="container h-full">
+                        <div class="flex-col-l-m h-full p-t-100 p-b-30 respon5">
+                            <div class="layer-slick1 animated visible-false"
+                                 data-appear="rotateInDownLeft"
+                                 data-delay="0">
+                                <span class="ltext-101 cl2 respon2">Men Collection</span>
+                            </div>
+                            <div class="layer-slick1 animated visible-false"
+                                 data-appear="rotateInUpRight"
+                                 data-delay="800">
+                                <h2 class="ltext-201 cl2 p-t-19 p-b-43 respon1">New arrivals</h2>
+                            </div>
+                            <div class="layer-slick1 animated visible-false"
+                                 data-appear="rotateIn"
+                                 data-delay="1600">
+                                <a href="{% url 'ecommerce:allproducts' %}"
+                                   class="flex-c-m stext-101 cl0 size-101 bg1 bor1 hov-btn1 p-lr-15 trans-04">
+                                    Shop Now
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Banner -->
+    <div class="sec-banner bg0 p-t-80 p-b-50">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 col-xl-4 p-b-30 m-lr-auto">
+                    <!-- Block1 -->
+                    <div class="block1 wrap-pic-w">
+                        <img src="{% static 'images/banner-01.jpg' %}" alt="IMG-BANNER">
+                        <a href="{% url 'ecommerce:allproducts' %}"
+                           class="block1-txt ab-t-l s-full flex-col-l-sb p-lr-38 p-tb-34 trans-03 respon3">
+                            <div class="block1-txt-child1 flex-col-l">
+                                <span class="block1-name ltext-102 trans-04 p-b-8">Women</span>
+                                <span class="block1-info stext-102 trans-04">Spring 2018</span>
+                            </div>
+                            <div class="block1-txt-child2 p-b-4 trans-05">
+                                <div class="block1-link stext-101 cl0 trans-09">Shop Now</div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-md-6 col-xl-4 p-b-30 m-lr-auto">
+                    <!-- Block1 -->
+                    <div class="block1 wrap-pic-w">
+                        <img src="{% static 'images/banner-02.jpg' %}" alt="IMG-BANNER">
+                        <a href="{% url 'ecommerce:allproducts' %}"
+                           class="block1-txt ab-t-l s-full flex-col-l-sb p-lr-38 p-tb-34 trans-03 respon3">
+                            <div class="block1-txt-child1 flex-col-l">
+                                <span class="block1-name ltext-102 trans-04 p-b-8">Men</span>
+                                <span class="block1-info stext-102 trans-04">Spring 2018</span>
+                            </div>
+                            <div class="block1-txt-child2 p-b-4 trans-05">
+                                <div class="block1-link stext-101 cl0 trans-09">Shop Now</div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-md-6 col-xl-4 p-b-30 m-lr-auto">
+                    <!-- Block1 -->
+                    <div class="block1 wrap-pic-w">
+                        <img src="{% static 'images/banner-03.jpg' %}" alt="IMG-BANNER">
+                        <a href="{% url 'ecommerce:allproducts' %} "
+                           class="block1-txt ab-t-l s-full flex-col-l-sb p-lr-38 p-tb-34 trans-03 respon3">
+                            <div class="block1-txt-child1 flex-col-l">
+                                <span class="block1-name ltext-102 trans-04 p-b-8">Accessories</span>
+                                <span class="block1-info stext-102 trans-04">New Trend</span>
+                            </div>
+                            <div class="block1-txt-child2 p-b-4 trans-05">
+                                <div class="block1-link stext-101 cl0 trans-09">Shop Now</div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Product -->
+    <section class="bg0 p-t-23 p-b-140">
+        <div class="container">
+            <div class="p-b-10">
+                <h3 class="ltext-103 cl5">Product Overview</h3>
+            </div>
+            
+            
+            <div class="row mt-3">
+                {% for p in product_list %}
+                    <div class="col-md-3 thumbnail col-sm-6 p-b-30 isotope-item">
+                        {% comment %} <div class="col-sm-6 col-md-5 col-lg-2 p-b-30 isotope-item women"> {% endcomment %}
+                        <!-- Block2 -->
+                        <div class="block2">
+                            <div class="block2-pic hov-img0">
+                                <a href="{% url 'ecommerce:productdetail' p.slug %}">
+                                    <img img
+                                         src="{{ p.image.url }}"
+                                         alt="IMG-PRODUCT"
+                                         style="height:270px;
+                                                width:250px;"
+                                         class="flex-c-m mx-auto">
+                                </a>
+                            </div>
+                            <div class="block2-txt flex-w flex-t p-t-14">
+                                <div class="block2-txt-child1 flex-col-l ">
+                                    <a href="{% url 'ecommerce:productdetail' p.slug %}"
+                                       class="stext-104 cl4 hov-cl1 trans-04 js-name-b2 p-b-6">
+                                        {{ p.title }}
+                                    </a>
+                                    <span class="stext-105 cl3">
+                                        Rs. {{ p.selling_price }}
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+                <nav aria-label="...">
+                    <ul class="pagination">
+                        {% if product_list.has_previous %}
+                            <li class="page-item">
+                                <a class="page-link"
+                                   href="?page={{ product_list.previous_page_number }}">Previous</a>
+                            </li>
+                        {% else %}
+                            <li class="page-item disabled">
+                                <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Previous</a>
+                            </li>
+                        {% endif %}
+                        {% for i in product_list.paginator.page_range %}
+                            {% if i == product_list.number %}
+                                <li class="page-item active">
+                                    <a class="page-link">{{i}}</a>
+                                </li>
+                            {% else %}
+                                <li class="page-item">
+                                    <a class="page-link" href="?page={{i}}">{{i }}</a>
+                                </li>
+                            {% endif %}
+                        {% endfor %}
+                        {% if product_list.has_next %}
+                            <li class="page-item">
+                                <a class="page-link" href="?page={{ product_list.next_page_number }}">Next</a>
+                            </li>
+                        {% else %}
+                            <li class="page-item disabled">
+                                <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Next</a>
+                            </li>
+                        {% endif %}
+                    </ul>
+                </nav>
+            </div>
+        </div>
+        <!-- Load more -->
+        <div class="flex-c-m flex-w w-full p-t-45">
+            <a href="{% url 'ecommerce:allproducts' %}"
+               class="flex-c-m stext-101 cl5 size-103 bg2 bor1 hov-btn1 p-lr-15 trans-04">
+                Show All Products
+            </a>
+        </div>
+    </div>
+</section>
+<!-- Footer -->
+<footer class="bg3 p-t-75 p-b-32">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-6 col-lg-3 p-b-50">
+                <h4 class="stext-301 cl0 p-b-30">
+                    Categories
+                </h4>
+                <ul>
+                    <li class="p-b-10">
+                        <a href="{% url 'ecommerce:allproducts' %}"
+                           class="stext-107 cl7 hov-cl1 trans-04">Women</a>
+                    </li>
+                    <li class="p-b-10">
+                        <a href="{% url 'ecommerce:allproducts' %}"
+                           class="stext-107 cl7 hov-cl1 trans-04">Men</a>
+                    </li>
+                    <li class="p-b-10">
+                        <a href="{% url 'ecommerce:allproducts' %}"
+                           class="stext-107 cl7 hov-cl1 trans-04">Shoes</a>
+                    </li>
+                    <li class="p-b-10">
+                        <a href="{% url 'ecommerce:allproducts' %}"
+                           class="stext-107 cl7 hov-cl1 trans-04">Watches</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="col-sm-6 col-lg-3 p-b-50">
+                <h4 class="stext-301 cl0 p-b-30">
+                    Help
+                </h4>
+                <ul>
+                    <ul>
+                        <li class="p-b-10">
+                            <a href="{% url 'ecommerce:customerprofile' %}"
+                               class="stext-107 cl7 hov-cl1 trans-04">Track Order</a>
+                        </li>
+                        <li class="p-b-10">
+                        </li>
+                        <li class="p-b-10">
+                            <a href="{% url 'ecommerce:customerprofile' %}"
+                               class="stext-107 cl7 hov-cl1 trans-04">Shipping</a>
+                        </li>
+                        <li class="p-b-10">
+                        </li>
+                    </ul>
+                </ul>
+            </div>
+            <div class="col-sm-6 col-lg-3 p-b-50">
+                <h4 class="stext-301 cl0 p-b-30">
+                    GET IN TOUCH
+                </h4>
+                <p class="stext-107 cl7 size-201">
+                    Any questions? Any questions? email us at email@example.com
+                </p>
+                <div class="p-t-27">
+                    <a href="#" class="fs-18 cl7 hov-cl1 trans-04 m-r-16">
+                        <i class="fa fa-facebook"></i>
+                    </a>
+                    <a href="#" class="fs-18 cl7 hov-cl1 trans-04 m-r-16">
+                        <i class="fa fa-instagram"></i>
+                    </a>
+                    <a href="#" class="fs-18 cl7 hov-cl1 trans-04 m-r-16">
+                        <i class="fa fa-pinterest-p"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="col-sm-6 col-lg-3 p-b-50">
+                <h4 class="stext-301 cl0 p-b-30">
+                    Newsletter
+                </h4>
+                <form>
+                    <div class="wrap-input1 w-full p-b-4">
+                        <input class="input1 bg-none plh1 stext-107 cl7"
+                               type="text"
+                               name="email"
+                               placeholder="email@example.com">
+                        <div class="focus-input1 trans-04">
+                        </div>
+                    </div>
+                    <div class="p-t-18">
+                        <button class="flex-c-m stext-101 cl0 size-103 bg1 bor1 hov-btn2 p-lr-15 trans-04">
+                            Subscribe
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+        {% comment %} <div class="p-t-40">
+            <div class="flex-c-m flex-w p-b-18">
+                <a href="#" class="m-all-1">
+                    <img src="{% static 'images/icons/icon-pay-01.png' %}" alt="ICON-PAY">
+                </a>
+                <a href="#" class="m-all-1">
+                    <img src="{% static 'images/icons/icon-pay-02.png' %}" alt="ICON-PAY">
+                </a>
+                <a href="#" class="m-all-1">
+                    <img src="{% static 'images/icons/icon-pay-03.png' %}" alt="ICON-PAY">
+                </a>
+                <a href="#" class="m-all-1">
+                    <img src="{% static 'images/icons/icon-pay-04.png' %}" alt="ICON-PAY">
+                </a>
+                <a href="#" class="m-all-1">
+                    <img src="{% static 'images/icons/icon-pay-05.png' %}" alt="ICON-PAY">
+                </a>
+            </div>
+        </div> {% endcomment %}
+    </div>
+</footer>
+<!-- Back to top -->
+<div class="btn-back-to-top" id="myBtn">
+    <span class="symbol-btn-back-to-top">
+        <i class="zmdi zmdi-chevron-up"></i>
+    </span>
+</div>
+<!-- Modal1 -->
+<!--===============================================================================================-->
+<script src="{% static 'vendor/jquery/jquery-3.2.1.min.js'%}"></script>
+<!--===============================================================================================-->
+<script src="{% static 'vendor/animsition/js/animsition.min.js'%}"></script>
+<!--===============================================================================================-->
+<script src="{% static 'vendor/bootstrap/js/popper.js'%}"></script>
+<script src="{% static 'vendor/bootstrap/js/bootstrap.min.js'%}"></script>
+<!--===============================================================================================-->
+<script src="{% static 'vendor/select2/select2.min.js'%}"></script>
+<script>
+		$(".js-select2").each(function(){
+			$(this).select2({
+				minimumResultsForSearch: 20,
+				dropdownParent: $(this).next('.dropDownSelect2')
+			});
+		})
+	
+</script>
+<!--===============================================================================================-->
+<script src="{% static 'vendor/daterangepicker/moment.min.js'%}"></script>
+<script src="{% static 'vendor/daterangepicker/daterangepicker.js'%}"></script>
+<!--===============================================================================================-->
+<script src="{% static 'vendor/slick/slick.min.js'%}"></script>
+<script src="{% static 'js/slick-custom.js'%}"></script>
+<!--===============================================================================================-->
+<script src="{% static 'vendor/parallax100/parallax100.js'%}"></script>
+<script>
+        $('.parallax100').parallax100();
+	
+</script>
+<!--===============================================================================================-->
+<script src="{% static 'vendor/MagnificPopup/jquery.magnific-popup.min.js'%}"></script>
+<script>
+		$('.gallery-lb').each(function() { // the containers for all your galleries
+			$(this).magnificPopup({
+		        delegate: 'a', // the selector for gallery item
+		        type: 'image',
+		        gallery: {
+		        	enabled:true
+		        },
+		        mainClass: 'mfp-fade'
+		    });
+		});
+	
+</script>
+<!--===============================================================================================-->
+<script src="{% static 'vendor/isotope/isotope.pkgd.min.js'%}"></script>
+<!--===============================================================================================-->
+<script src="{% static 'vendor/sweetalert/sweetalert.min.js'%}"></script>
+<script>
+		$('.js-addwish-b2').on('click', function(e){
+			e.preventDefault();
+		});
+
+		$('.js-addwish-b2').each(function(){
+			var nameProduct = $(this).parent().parent().find('.js-name-b2').html();
+			$(this).on('click', function(){
+				swal(nameProduct, "is added to wishlist !", "success");
+
+				$(this).addClass('js-addedwish-b2');
+				$(this).off('click');
+			});
+		});
+
+		$('.js-addwish-detail').each(function(){
+			var nameProduct = $(this).parent().parent().parent().find('.js-name-detail').html();
+
+			$(this).on('click', function(){
+				swal(nameProduct, "is added to wishlist !", "success");
+
+				$(this).addClass('js-addedwish-detail');
+				$(this).off('click');
+			});
+		});
+
+		/*---------------------------------------------*/
+
+		$('.js-addcart-detail').each(function(){
+			var nameProduct = $(this).parent().parent().parent().parent().find('.js-name-detail').html();
+			$(this).on('click', function(){
+				swal(nameProduct, "is added to cart !", "success");
+			});
+		});
+	
+	
+</script>
+<!--===============================================================================================-->
+<script src="{% static 'vendor/perfect-scrollbar/perfect-scrollbar.min.js'%}"></script>
+<script>
+		$('.js-pscroll').each(function(){
+			$(this).css('position','relative');
+			$(this).css('overflow','hidden');
+			var ps = new PerfectScrollbar(this, {
+				wheelSpeed: 1,
+				scrollingThreshold: 1000,
+				wheelPropagation: false,
+			});
+
+			$(window).on('resize', function(){
+				ps.update();
+			})
+		});
+	
+</script>
+<!--===============================================================================================-->
+<script src="{% static 'js/main.js'%}"></script>
+{% endblock %}

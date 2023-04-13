@@ -1,0 +1,219 @@
+{% extends "adminpages/adminbase.html" %}
+{% load static %}
+{% load humanize %}
+{% block title %}Order Detail{% endblock %}
+{% block content %}
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-10 col-xl-7 m-lr-auto m-b-50">
+                <br />
+                <br />
+                <br />
+                <br />
+                <h3>Order Detail</h3>
+                <hr>
+                <p>
+                    <p>
+                        <span class="font-weight-bold">Order ID:</span> #ORDER_{{ ord_obj.id }}
+                </p>
+            </p>
+            <p>
+                <p>
+                    <span class="font-weight-bold">Order Status:</span> {{ ord_obj.order_status }}
+            </p>
+        </p>
+        <p>
+            <p>
+                <span class="font-weight-bold">Order On:</span> {{ ord_obj.created_at }}({{ ord_obj.created_at|timesince }} ago)
+        </p>
+    </p>
+    <p>
+        <p>
+            <span class="font-weight-bold">Customer Information:</span> By Mr./Mrs. {{ ord_obj.ordered_by }}
+    </p>
+</p>
+<p>
+    <p>
+        <span class="font-weight-bold">Mobile:</span> {{ ord_obj.mobile }}
+</p>
+</p>
+<p>
+    <p>
+        <span class="font-weight-bold">Shipping Address:</span> By {{ ord_obj.shipping_address }}
+</p>
+</p>
+<p>
+    <p>
+        <span class="font-weight-bold">Email:</span>{{ ord_obj.email }}
+</p>
+</p>
+<p>
+    <p>
+        <span class="font-weight-bold">Payment Information</span> Using
+    {{ ord_obj.payment_method }} 
+    {% if ord_obj.payment_completed %}
+        (Payment Completed)
+    {% else %}
+        (Not Paid)
+    {% endif %}
+    
+</p>
+</p>
+<br />
+<br />
+<h4>Ordered Items</h4>
+<br />
+<table class="table">
+    <thead>
+        <tr>
+            <th>SN</th>
+            <th>Item</th>
+            <th>Rate</th>
+            <th>Quantity</th>
+            <th>Subtotal</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for cp in ord_obj.cart.cartproduct_set.all %}
+            <tr>
+                <td>{{ forloop.counter }}</td>
+                <td>
+                    <a target="_blank"
+                       href="{% url 'ecommerce:productdetail' cp.product.slug %}">{{ cp.product.title }}({{ cp.product.id }})</a>
+                </td>
+                <td>{{ cp.rate }}</td>
+                <td>{{ cp.quantity }}</td>
+                <td>{{ cp.subtotal }}</td>
+            </tr>
+        {% endfor %}
+        <tr>
+            <th colspan="4" class="text-right">Total:</th>
+            <th>Rs. {{ ord_obj.total | intcomma }}/-</th>
+        </tr>
+    </tbody>
+</table>
+<form action="{% url 'ecommerce:adminorderstatus' ord_obj.id %}"
+      method="POST">
+    {% csrf_token %}
+    <select name="status">
+        {% for i,j in allstatus %}
+            <option value="{{i}}" {% if i == ord_obj.order_status %}selected{% endif %}>
+                {{j}}
+            </option>
+            <br />
+            <br />
+        {% endfor %}
+    </select>
+    <br />
+    <button class="flex-c-m stext-101 cl0 size-101 bg1 bor1 hov-btn1 p-lr-15 trans-04 js-addcart-detail">Change</button>
+</form>
+</div>
+</div>
+</div>
+<!--===============================================================================================-->
+<script src="{% static 'vendor/jquery/jquery-3.2.1.min.js'%}"></script>
+<!--===============================================================================================-->
+<script src="{% static 'vendor/animsition/js/animsition.min.js'%}"></script>
+<!--===============================================================================================-->
+<script src="{% static 'vendor/bootstrap/js/popper.js'%}"></script>
+<script src="{% static 'vendor/bootstrap/js/bootstrap.min.js'%}"></script>
+<!--===============================================================================================-->
+<script src="{% static 'vendor/select2/select2.min.js'%}"></script>
+<script>
+		$(".js-select2").each(function(){
+			$(this).select2({
+				minimumResultsForSearch: 20,
+				dropdownParent: $(this).next('.dropDownSelect2')
+			});
+		})
+	
+</script>
+<!--===============================================================================================-->
+<script src="{% static 'vendor/daterangepicker/moment.min.js'%}"></script>
+<script src="{% static 'vendor/daterangepicker/daterangepicker.js'%}"></script>
+<!--===============================================================================================-->
+<script src="{% static 'vendor/slick/slick.min.js'%}"></script>
+<script src="{% static 'js/slick-custom.js'%}"></script>
+<!--===============================================================================================-->
+<script src="{% static 'vendor/parallax100/parallax100.js'%}"></script>
+<script>
+        $('.parallax100').parallax100();
+	
+</script>
+<!--===============================================================================================-->
+<script src="{% static 'vendor/MagnificPopup/jquery.magnific-popup.min.js'%}"></script>
+<script>
+		$('.gallery-lb').each(function() { // the containers for all your galleries
+			$(this).magnificPopup({
+		        delegate: 'a', // the selector for gallery item
+		        type: 'image',
+		        gallery: {
+		        	enabled:true
+		        },
+		        mainClass: 'mfp-fade'
+		    });
+		});
+	
+</script>
+<!--===============================================================================================-->
+<script src="{% static 'vendor/isotope/isotope.pkgd.min.js'%}"></script>
+<!--===============================================================================================-->
+<script src="{% static 'vendor/sweetalert/sweetalert.min.js'%}"></script>
+<script>
+		$('.js-addwish-b2').on('click', function(e){
+			e.preventDefault();
+		});
+
+		$('.js-addwish-b2').each(function(){
+			var nameProduct = $(this).parent().parent().find('.js-name-b2').html();
+			$(this).on('click', function(){
+				swal(nameProduct, "is added to wishlist !", "success");
+
+				$(this).addClass('js-addedwish-b2');
+				$(this).off('click');
+			});
+		});
+
+		$('.js-addwish-detail').each(function(){
+			var nameProduct = $(this).parent().parent().parent().find('.js-name-detail').html();
+
+			$(this).on('click', function(){
+				swal(nameProduct, "is added to wishlist !", "success");
+
+				$(this).addClass('js-addedwish-detail');
+				$(this).off('click');
+			});
+		});
+
+		/*---------------------------------------------*/
+
+		$('.js-addcart-detail').each(function(){
+			var nameProduct = $(this).parent().parent().parent().parent().find('.js-name-detail').html();
+			$(this).on('click', function(){
+				swal(nameProduct, "is added to cart !", "success");
+			});
+		});
+	
+	
+</script>
+<!--===============================================================================================-->
+<script src="{% static 'vendor/perfect-scrollbar/perfect-scrollbar.min.js'%}"></script>
+<script>
+		$('.js-pscroll').each(function(){
+			$(this).css('position','relative');
+			$(this).css('overflow','hidden');
+			var ps = new PerfectScrollbar(this, {
+				wheelSpeed: 1,
+				scrollingThreshold: 1000,
+				wheelPropagation: false,
+			});
+
+			$(window).on('resize', function(){
+				ps.update();
+			})
+		});
+	
+</script>
+<!--===============================================================================================-->
+<script src="{% static 'js/main.js'%}"></script>
+{% endblock %}

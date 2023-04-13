@@ -1,0 +1,160 @@
+{% extends 'adminpages/adminbase.html' %}
+{% load static %}
+{% block title %}Add New Products{% endblock %}
+
+
+{% block content %}
+
+<style>
+    #id_title{
+    margin-bottom: 15px;
+    border: solid 1px;
+    padding: 5px;
+  }
+  #id_slug{
+    margin-bottom: 15px;
+    border: solid 1px;
+    padding: 5px;
+  }
+  #id_image{
+    margin-bottom: 15px;
+    border: solid 1px;
+    padding: 5px;
+  }
+  #id_category{
+    margin-bottom: 15px;
+    border: solid 1px;
+    padding: 5px;
+  }
+  #id_marked_price{
+    border: solid 1px;
+    padding: 5px;
+  }
+  #id_marked_price{
+    border: solid 1px;
+    padding: 5px;
+    margin-bottom: 15px;
+  }
+  #id_selling_price{
+    border: solid 1px;
+    padding: 5px;
+    margin-bottom: 15px;
+  }
+  #id_description{
+    border: solid 1px;
+    padding: 5px;
+    margin-bottom: 15px;
+  }
+  #id_warranty{
+    border: solid 1px;
+    padding: 5px;
+    margin-bottom: 15px;
+  }
+  #id_return_policy{
+    border: solid 1px;
+    padding: 5px;
+    margin-bottom: 15px;
+  }
+  #id_more_images{
+    border: solid 1px;
+    padding: 5px;
+    margin-bottom: 15px;
+  }
+</style>
+<br/>
+<br/>
+<br/>
+<br/>
+<div class="container">
+    <div class="row">
+        <div class="col-lg-10 col-xl-7 m-lr-auto m-b-50">
+<h4><b>Add a Product</b></h4>
+<br/>
+<br/>
+<form class="mx-1 mx-md-4" action="" method="POST" enctype="multipart/form-data">
+    
+   
+    {% csrf_token %}
+    {{ form.as_p }}
+    <br/>
+    <br />
+    <button class="flex-c-m stext-101 cl0 size-116 bg3 bor14 hov-btn3 p-lr-15 trans-04 pointer">Add Product</button>
+</form>
+
+</div>
+</div>
+</div>
+
+
+
+
+
+ <!--===============================================================================================-->
+ <script src="{% static 'vendor/jquery/jquery-3.2.1.min.js' %}"></script>
+ <!--===============================================================================================-->
+ <script src="{% static 'vendor/animsition/js/animsition.min.js' %}"></script>
+ <!--===============================================================================================-->
+ <script src="{% static 'vendor/bootstrap/js/popper.js' %}"></script>
+ <script src="{% static 'vendor/bootstrap/js/bootstrap.min.js'%}"></script>
+ <!--===============================================================================================-->
+ <script src="{% static 'vendor/select2/select2.min.js' %}"></script>
+ <script>
+$(".js-select2").each(function(){
+$(this).select2({
+minimumResultsForSearch: 20,
+dropdownParent: $(this).next('.dropDownSelect2')
+});
+})
+
+ </script>
+ <!--===============================================================================================-->
+ <script src="{% static 'vendor/daterangepicker/moment.min.js' %}"></script>
+ <script src="{% static 'vendor/daterangepicker/daterangepicker.js' %}"></script>
+ <!--===============================================================================================-->
+ <script src="{% static 'vendor/slick/slick.min.js' %}"></script>
+ <script src="{% static 'js/slick-custom.js' %}"></script>
+ <!--===============================================================================================-->
+ <script src="{% static 'vendor/parallax100/parallax100.js' %}"></script>
+ <script>$('.parallax100').parallax100();</script>
+ <!--===============================================================================================-->
+ <script src="{% static 'vendor/MagnificPopup/jquery.magnific-popup.min.js'%}"></script>
+ <script>
+$('.gallery-lb').each(function() { // the containers for all your galleries
+$(this).magnificPopup({
+delegate: 'a', // the selector for gallery item
+type: 'image',
+gallery: {
+ enabled:true
+},
+mainClass: 'mfp-fade'
+});
+});
+
+ </script>
+ <!--===============================================================================================-->
+ <script src="{% static 'vendor/isotope/isotope.pkgd.min.js' %}"></script>
+ <!--===============================================================================================-->
+ <script src="{% static 'vendor/sweetalert/sweetalert.min.js' %}"></script>
+ <!--===============================================================================================-->
+ <script src="{% static 'vendor/perfect-scrollbar/perfect-scrollbar.min.js'%}"></script>
+ <script>
+$('.js-pscroll').each(function(){
+$(this).css('position','relative');
+$(this).css('overflow','hidden');
+var ps = new PerfectScrollbar(this, {
+wheelSpeed: 1,
+scrollingThreshold: 1000,
+wheelPropagation: false,
+});
+
+$(window).on('resize', function(){
+ps.update();
+})
+});
+
+ </script>
+ <!--===============================================================================================-->
+ <script src="{% static 'js/main.js'%}"></script>
+
+
+{% endblock %}
